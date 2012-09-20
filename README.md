@@ -1,7 +1,7 @@
 Libra Markdown
 =======================
 
-Using
+Usage
 ------------
 You can use it as view helper
 ~~~
