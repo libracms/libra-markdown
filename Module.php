@@ -11,7 +11,7 @@ class Module implements AutoloaderProviderInterface, ViewHelperProviderInterface
 
     public function init()
     {
-        require_once 'vendor/michelf-php-markdown/markdown.php';
+        include_once 'vendor/michelf/php-markdown/markdown.php';
     }
 
     public function getViewHelperConfig()
@@ -28,8 +28,8 @@ class Module implements AutoloaderProviderInterface, ViewHelperProviderInterface
         return array(
             'Zend\Loader\ClassMapAutoloader' => array(
                 array(
-                    'Markdown'        => __DIR__ . '/vendor/michelf/php-markdown/markdown.php',
-                    'Markdown_Parser' => __DIR__ . '/vendor/michelf/php-markdown/markdown.php',
+                    'MarkdownExtra_Parser' => __DIR__ . '/vendor/michelf/php-markdown/markdown.php',
+                    'Markdown_Parser'      => __DIR__ . '/vendor/michelf/php-markdown/markdown.php',
                 ),
             ),
             'Zend\Loader\StandardAutoloader' => array(
