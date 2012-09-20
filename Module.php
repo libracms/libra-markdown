@@ -28,8 +28,8 @@ class Module implements AutoloaderProviderInterface, ViewHelperProviderInterface
         return array(
             'Zend\Loader\ClassMapAutoloader' => array(
                 array(
-                    'Markdown'        => __DIR__ . '/vendor/michelf-php-markdown/markdown.php',
-                    'Markdown_Parser' => __DIR__ . '/vendor/michelf-php-markdown/markdown.php',
+                    'Markdown'        => __DIR__ . '/vendor/michelf/php-markdown/markdown.php',
+                    'Markdown_Parser' => __DIR__ . '/vendor/michelf/php-markdown/markdown.php',
                 ),
             ),
             'Zend\Loader\StandardAutoloader' => array(
