@@ -13,7 +13,7 @@
 
     "require": {
         "php": ">=5.3.3",
-        "michelf/php-markdown": "dev-lib"
+        "michelf/php-markdown": "dev-lib@dev"
     },
 
     "require-dev": {
