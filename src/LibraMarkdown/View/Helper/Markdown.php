@@ -19,6 +19,11 @@ class Markdown extends AbstractHelper
     public function __invoke($text)
     {
         if ($text === null) return $this;
-        return Markdown($text);
+        if (class_exists('Markdown_Parser') || class_exists('MarkdownExtra_Parser')) {
+            return Markdown($text);
+        } else {
+            //@todo:here add log that class wasn't loaded;
+            return $text;
+        }
     }
 }
