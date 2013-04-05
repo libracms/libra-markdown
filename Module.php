@@ -11,7 +11,7 @@ class Module implements AutoloaderProviderInterface, ViewHelperProviderInterface
 
     public function init()
     {
-        include_once 'vendor/michelf/php-markdown/markdown.php';
+        @include_once 'vendor/michelf/php-markdown/markdown.php';
     }
 
     public function getViewHelperConfig()
