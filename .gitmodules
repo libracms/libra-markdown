@@ -1,3 +1,4 @@
 [submodule "vendor/michelf/php-markdown"]
 	path = vendor/michelf/php-markdown
 	url = https://github.com/michelf/php-markdown
+    branch = lib

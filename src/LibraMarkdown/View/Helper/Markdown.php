@@ -10,7 +10,8 @@ namespace LibraMarkdown\View\Helper;
 use Zend\View\Helper\AbstractHelper;
 
 /**
- * Description of Markdown
+ * Try use MarkdownExta, if not exists try Mardkown
+ * otherwise return raw text
  *
  * @author duke
  */
@@ -19,9 +20,13 @@ class Markdown extends AbstractHelper
     public function __invoke($text)
     {
         if ($text === null) return $this;
-        if (class_exists('Markdown_Parser') || class_exists('MarkdownExtra_Parser')) {
-            return Markdown($text);
+
+        if (class_exists('MarkdownExtra')) {
+            return MarkdownExtra::defaultTransform($text);
+        } elseif(class_exists('Markdown')) {
+            return Markdown::defaultTransform($text);
         } else {
+            //fallback to raw text
             //@todo:here add log that class wasn't loaded;
             return $text;
         }
