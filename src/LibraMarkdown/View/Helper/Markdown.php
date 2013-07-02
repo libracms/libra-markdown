@@ -21,10 +21,10 @@ class Markdown extends AbstractHelper
     {
         if ($text === null) return $this;
 
-        if (class_exists('MarkdownExtra')) {
-            return MarkdownExtra::defaultTransform($text);
-        } elseif(class_exists('Markdown')) {
-            return Markdown::defaultTransform($text);
+        if (class_exists('Michelf\MarkdownExtra')) {
+            return \Michelf\MarkdownExtra::defaultTransform($text);
+        } elseif(class_exists('Michelf\Markdown')) {
+            return \Michelf\Markdown::defaultTransform($text);
         } else {
             //fallback to raw text
             //@todo:here add log that class wasn't loaded;
