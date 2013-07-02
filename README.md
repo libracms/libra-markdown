@@ -9,5 +9,5 @@ echo $this->markdown('Some **markdown** text');
 ~~~
 or as library
 ~~~
-echo Markdown($text);
+echo \Michelf\Markdown\Markdown::defaultTransform($text);
 ~~~
