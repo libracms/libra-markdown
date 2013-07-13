@@ -11,3 +11,5 @@ or as library
 ~~~
 echo \Michelf\Markdown\Markdown::defaultTransform($text);
 ~~~
+
+By default enabled MarkdownExtra compiler.
