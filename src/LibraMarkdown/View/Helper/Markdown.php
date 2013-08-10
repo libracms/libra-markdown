@@ -7,8 +7,6 @@
 
 namespace LibraMarkdown\View\Helper;
 
-use Michelf\Markdown;
-use Michelf\MarkdownExtra;
 use Zend\View\Helper\AbstractHelper;
 
 /**
@@ -34,8 +32,8 @@ class Markdown extends AbstractHelper
         if ($text === null) return $this;
         $parseAsExtra = (bool) $parseAsExtra;
 
-        return $parseAsExtra === true ? MarkdownExtra::defaultTransform($text)
-            : Markdown::defaultTransform($text);
+        return $parseAsExtra === true ? \Michelf\MarkdownExtra::defaultTransform($text)
+            : \Michelf\Markdown::defaultTransform($text);
     }
 
     /**

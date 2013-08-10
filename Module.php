@@ -2,9 +2,9 @@
 
 namespace LibraMarkdown;
 
+use LibraMarkdown\View\Helper\Markdown;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\ViewHelperProviderInterface;
-use LibraMarkdown\View\Helper\Markdown;
 
 class Module implements AutoloaderProviderInterface, ViewHelperProviderInterface
 {
@@ -12,12 +12,13 @@ class Module implements AutoloaderProviderInterface, ViewHelperProviderInterface
     {
         return array(
             'factories' => array(
-                'markdown' => function ($sl) {
-                    $config = $sl->get('Config');
+                'markdown' => function ($serviceManager) {
+                    //$config = $serviceManager->get('config');
                     $helper = new Markdown;
                     if (isset($config['libra_markdow']['parseAsExtra'])) {
                         $helper->setParseAsExtra($config['libra_markdow']['parseAsExtra']);
                     }
+                    return $helper;
                 },
             ),
         );
