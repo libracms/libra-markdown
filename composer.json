@@ -1,7 +1,6 @@
 {
     "name":         "libra/libra-markdown",
-    "type":         "library",
-    "version":      "0.3.0",
+    "type":         "zf-module",
     "description":  "Markdown view helper for ZF2",
     "keywords":     ["zf", "zf2", "zendframework", "CMS", "libra", "markdown"],
     "homepage":     "http://www.libra-cms.ejoom.com",
@@ -13,27 +12,13 @@
 
     "require": {
         "php": ">=5.3.3",
-        "michelf/php-markdown": "dev-lib@dev"
-    },
-
-    "require-dev": {
-        
+        "michelf/php-markdown": "~1.3"
     },
 
     "autoload": {
         "classmap": [
             "Module.php",
-            "src",
-            "vendor"
+            "src"
         ]
-    },
-
-    "provide": {
-      
-    },
-
-    "suggest": {
-        "libra/libra-article": "Add main CMS functionality"
     }
-
 }
