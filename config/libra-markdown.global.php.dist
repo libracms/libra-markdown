@@ -1,0 +1,13 @@
+<?php
+$config = array(
+    /**
+     * How markdown text will be parsed as 'extra' or as 'standard' parser
+     * type: bool
+     * default: true
+     */
+    'parseAsExtra' => true,
+);
+
+return array(
+    'libra_markdown' => $config,
+);

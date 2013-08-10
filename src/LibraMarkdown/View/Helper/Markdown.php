@@ -7,28 +7,53 @@
 
 namespace LibraMarkdown\View\Helper;
 
+use Michelf\Markdown;
+use Michelf\MarkdownExtra;
 use Zend\View\Helper\AbstractHelper;
 
 /**
- * Try use MarkdownExta, if not exists try Mardkown
- * otherwise return raw text
+ * Use MarkdownExta or Mardkown parser to transform text to html
  *
- * @author duke
+ * @author Vitalii Nagara
  */
 class Markdown extends AbstractHelper
 {
-    public function __invoke($text)
+    /**
+     * Determine how markdown text will be parsed as 'extra' or as 'standard' parser
+     * @var string
+     */
+    protected $parseAsExtra = true;
+
+    /**
+     * @param string $text
+     * @param bool $parseAsExtra
+     * @return string transformed to html string
+     */
+    public function __invoke($text = null, $parseAsExtra = true)
     {
         if ($text === null) return $this;
+        $parseAsExtra = (bool) $parseAsExtra;
 
-        if (class_exists('Michelf\MarkdownExtra')) {
-            return \Michelf\MarkdownExtra::defaultTransform($text);
-        } elseif(class_exists('Michelf\Markdown')) {
-            return \Michelf\Markdown::defaultTransform($text);
-        } else {
-            //fallback to raw text
-            //@todo:here add log that class wasn't loaded;
-            return $text;
-        }
+        return $parseAsExtra === true ? MarkdownExtra::defaultTransform($text)
+            : Markdown::defaultTransform($text);
+    }
+
+    /**
+     * @return bool
+     */
+    public function getParseAsExtra()
+    {
+        return $this->parseAsExtra;
+    }
+
+    /**
+     * Set parse behaviour to STANDARD or EXTRA
+     * @param bool $parseAsExtra
+     * @return \LibraMarkdown\View\Helper\Markdown
+     */
+    public function setParseAsExtra($parseAsExtra)
+    {
+        $this->parseAsExtra = (bool) $parseAsExtra;
+        return $this;
     }
 }
