@@ -4,7 +4,6 @@
     "description":  "Markdown view helper for ZF2",
     "keywords":     ["zf", "zf2", "zendframework", "CMS", "libra", "markdown"],
     "homepage":     "http://michelf.ca/projects/php-markdown/",
-    "time":         "2012-09-09",
     "license":      "BSD-3-Clause",
     "authors": [
         {"name": "Vitalii Nagara", "email": "duke@ejoom.com", "role": "maintainer, developer", "homepage": ""}
